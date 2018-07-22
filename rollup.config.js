@@ -7,13 +7,14 @@ import { uglify } from 'rollup-plugin-uglify';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
+	input: production ? 'src/ellipse' : 'src/main.js',
 	output: {
-		file: 'public/bundle.js',
-		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
-		sourcemap: true
+		file: production ? 'build/index.js' : 'public/bundle.js',
+		format: production ? 'cjs' : 'iife', // immediately-invoked function expression — suitable for <script> tags
+		sourcemap: production ? false : true
 	},
 	plugins: [
-		babel(babelrc())
+		babel(babelrc()),
+		production && uglify()
 	]
 };
