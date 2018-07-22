@@ -7,17 +7,50 @@
     }
   };
 
-  var Test = function Test() {
-  	classCallCheck(this, Test);
+  var Ellipse = function Ellipse() {
+  	var _this = this;
 
-  	this.foo = function () {
-  		console.log(true);
+  	var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  	classCallCheck(this, Ellipse);
+
+  	this.ellipseCopy = function (copy) {
+  		for (var i = 0; i < _this.countVal.length; i++) {
+  			var size = _this.settings[i].width;
+  			var winSize = window.innerWidth;
+
+  			if (winSize < size) {
+  				return copy.substring(0, _this.countVal[i]) + "...";
+  			}
+  		}
+
+  		return copy;
   	};
 
-  	console.log(true);
+  	this.settings = settings;
+  	this.countVal = settings.map(function (val) {
+  		return val.count;
+  	});
   };
 
-  new Test();
+  var copyNode = document.querySelector('.test');
+  var copy = copyNode.textContent;
+
+  var copyEllipse = new Ellipse([{
+    width: 768,
+    count: 50
+  }, {
+    width: 980,
+    count: 100
+  }, {
+    width: 1280,
+    count: 150
+  }]);
+
+  copyNode.innerHTML = copyEllipse.ellipseCopy(copy);
+
+  window.addEventListener('resize', function () {
+    copyNode.innerHTML = copyEllipse.ellipseCopy(copy);
+  });
 
 }());
 //# sourceMappingURL=bundle.js.map
