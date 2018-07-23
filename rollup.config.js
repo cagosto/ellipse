@@ -1,6 +1,6 @@
 import babelrc from 'babelrc-rollup';
 import babel from 'rollup-plugin-babel';
-import { uglify } from 'rollup-plugin-uglify';
+import minify from 'rollup-plugin-babel-minify';
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
@@ -10,11 +10,14 @@ export default {
 	input: production ? 'src/ellipse' : 'src/main.js',
 	output: {
 		file: production ? 'build/index.js' : 'public/bundle.js',
-		format: production ? 'cjs' : 'iife', // immediately-invoked function expression — suitable for <script> tags
+		format: production ? 'esm' : 'iife',
 		sourcemap: production ? false : true
 	},
 	plugins: [
 		babel(babelrc()),
-		production && uglify()
+		production && minify({
+			comments: false,
+			sourceMap: false
+		})
 	]
 };

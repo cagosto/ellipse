@@ -1,7 +1,7 @@
-import Ellipse from './ellipse.js';
+import Ellipse from './ellipse'
+
 const copyNode = document.querySelector('.test')
 const copy = copyNode.textContent
-
 const copyEllipse = new Ellipse([
   {
     width: 768,

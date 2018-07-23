@@ -7,19 +7,43 @@
     }
   };
 
-  var Ellipse = function Ellipse() {
+  /**
+   * Example settings:
+   * [
+     {
+       width: 768,
+       count : 50
+     },
+     {
+       width: 980,
+       count: 100
+     },
+     {
+       width: 1280,
+       count: 150
+     }
+   ]
+   */
+  var Ellipse =
+  /**
+   * constructor kick off class
+   * @param {Array} [settings=[]] - Array of objects for ellipse settings
+   */
+  function Ellipse() {
   	var _this = this;
 
   	var settings = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   	classCallCheck(this, Ellipse);
 
-  	this.ellipseCopy = function (copy) {
+  	this.ellipseCopy = function () {
+  		var copy = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
   		for (var i = 0; i < _this.countVal.length; i++) {
   			var size = _this.settings[i].width;
   			var winSize = window.innerWidth;
 
   			if (winSize < size) {
-  				return copy.substring(0, _this.countVal[i]) + "...";
+  				return copy.substring(0, _this.countVal[i]) + '...';
   			}
   		}
 
@@ -30,11 +54,16 @@
   	this.countVal = settings.map(function (val) {
   		return val.count;
   	});
-  };
+  }
+  /**
+   * ellipseCopy - Check to see if copy needs to be shorten
+   * @param  {String} [copy=''] - copy to shorten
+   * @return {String} -  shorten copy if matces settings
+   */
+  ;
 
   var copyNode = document.querySelector('.test');
   var copy = copyNode.textContent;
-
   var copyEllipse = new Ellipse([{
     width: 768,
     count: 50
