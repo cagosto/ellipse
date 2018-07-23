@@ -1,6 +1,6 @@
 {
   "name": "ellipse-copy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Ellipse copy",
   "main": "build/index.js",
   "keywords": [
@@ -13,6 +13,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cagosto/ellipse/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagosto/ellipse"
   },
   "homepage": "https://codepen.io/Cagosto/pen/yqMMPq",
   "devDependencies": {
