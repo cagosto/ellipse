@@ -28,6 +28,6 @@ new Ellipse([
 ```
 
 ## Installation
-`npm i resize-image-map`
+`npm i ellipse-copy`
 
-`import Ellipse from 'ellipse'`
+`import Ellipse from 'ellipse-copy'`
