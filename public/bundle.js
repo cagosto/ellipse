@@ -41,9 +41,12 @@
   		for (var i = 0; i < _this.countVal.length; i++) {
   			var size = _this.settings[i].width;
   			var winSize = window.innerWidth;
+  			var total = _this.countVal[i];
 
-  			if (winSize < size) {
-  				return copy.substring(0, _this.countVal[i]) + '...';
+  			if (winSize <= size) {
+  				if (copy.length > total) {
+  					return copy.substring(0, total) + '...';
+  				}
   			}
   		}
 

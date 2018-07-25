@@ -33,9 +33,12 @@ export default class Ellipse {
 		for (let i = 0; i < this.countVal.length; i++) {
 			const size = this.settings[i].width
 			const winSize = window.innerWidth
+			const total = this.countVal[i]
 
 			if(winSize <= size){
-				return `${copy.substring(0, this.countVal[i])}...`
+				if(copy.length > total){
+					return `${copy.substring(0, total)}...`
+				}
 			}
 		}
 
