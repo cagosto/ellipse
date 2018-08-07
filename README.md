@@ -8,7 +8,7 @@ This ES6 class will let you ellipse copy for different breakpoints.
 Check out the codepen for a [example](https://codepen.io/Cagosto/pen/yqMMPq).
 
 ## Config
-Config requires an Array of objects that pass width and count as props. Width is the max value for the count that is passed. In the config below 0 - 768 copy will be 50 character long with and add "..." at the end of the string. 769 - 980 will be 100 character long so on and so on.
+Config requires an Array of objects that pass width and count as props. Width is the max value for the count that is passed.
 
 ```
 new Ellipse([
